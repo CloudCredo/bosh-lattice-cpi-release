@@ -1,11 +1,11 @@
 ---
-name: softlayer-in-vagrant
+name: bosh-lattice-in-vagrant
 
 releases:
 - name: bosh
   version: 104
   url: https://s3.amazonaws.com/bosh-jenkins-artifacts/release/bosh-2710.tgz # from http://bosh-artifacts.cfapps.io/
-- name: bosh-softlayer-cpi
+- name: bosh-lattice-cpi
   version: latest
   url: dir+bosh://./
 
@@ -41,7 +41,7 @@ jobs:
   - name: health_monitor
     release: bosh
   - name: cpi
-    release: bosh-softlayer-cpi
+    release: bosh-lattice-cpi
 
 properties:
   ntp: ["0.us.pool.ntp.org"]
@@ -76,7 +76,7 @@ properties:
     port: 25255
 
   director:
-    name: bosh-in-softlayer
+    name: bosh-in-lattice
     address: 127.0.0.1
     port: 25555
     encryption: false
@@ -183,7 +183,6 @@ properties:
 
   <% require "json" %>
 
-  # softlayer job template
-  softlayer:
-    username: <%= JSON.dump(ENV.fetch("SL_USERNAME")) %>
-    apiKey: <%= JSON.dump(ENV.fetch("SL_API_KEY")) %>
+  # lattice job template
+  lattice:
+    username: <%= JSON.dump(ENV.fetch("LATTICE_USERNAME")) %>

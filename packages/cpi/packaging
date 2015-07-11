@@ -1,10 +1,10 @@
 set -e
 
-mkdir -p go/src/github.com/maximilien
+mkdir -p go/src/github.com/cloudcredo
 
-mv bosh-softlayer-cpi go/src/github.com/maximilien/
+mv bosh-softlayer-cpi go/src/github.com/cloudcredo/
 
-cd go/src/github.com/maximilien/bosh-softlayer-cpi
+cd go/src/github.com/cloudcredo/bosh-lattice-cpi
 
 pkgs_dir=${BOSH_PACKAGES_DIR:-/var/vcap/packages}
 export GOROOT=$(readlink -nf $pkgs_dir/golang_1.3)
