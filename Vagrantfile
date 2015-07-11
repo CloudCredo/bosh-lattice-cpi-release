@@ -12,6 +12,8 @@ Vagrant.configure("2") do |config|
     v.cpus = 2
   end
 
+  config.vm.provision "shell", inline: "apt-get update"
+
   config.vm.provision "shell", inline: "apt-get -y install linux-image-extra-$(uname -r)" # aufs
 
   config.vm.provision "bosh" do |c|
